@@ -1,9 +1,35 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "ueno-3d-starter",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "A simple 3D starter with react-three-fiber",
+  "version": "1.0.0",
+  "author": "Birkir Gudjonsson <birkir.gudjonsson@gmail.com>",
+  "keywords": [
+    "gatsby",
+    "starter",
+    "react-three-fiber",
+    "three.js",
+    "3d"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
+    "lint": "npm run prettier && npm run tslint && npm run stylelint",
+    "prettier": "prettier --list-different '**/*.{ts,tsx,js,jsx,json,md}'",
+    "tslint": "tslint --fix 'src/**/*.{ts,tsx}'",
+    "stylelint": "stylelint 'src/**/*.{ts,tsx}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ueno-llc/ueno-3d-starter"
+  },
+  "bugs": {
+    "url": "https://github.com/ueno-llc/ueno-3d-starter/issues"
+  },
   "dependencies": {
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
@@ -11,33 +37,37 @@
     "gatsby-plugin-offline": "^2.2.7",
     "gatsby-plugin-react-helmet": "^3.1.4",
     "gatsby-plugin-sharp": "^2.2.13",
+    "gatsby-plugin-typescript": "^2.1.6",
     "gatsby-source-filesystem": "^2.1.11",
     "gatsby-transformer-sharp": "^2.2.7",
-    "prop-types": "^15.7.2",
+    "polished": "^3.4.1",
     "react": "^16.9.0",
+    "react-cache": "^2.0.0-alpha.1",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-three-fiber": "^2.3.6",
+    "styled-components": "^4.3.2",
+    "three": "^0.108.0"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "@types/node": "^12.7.3",
+    "@types/react": "^16.9.2",
+    "@types/react-cache": "^2.0.1",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.9",
+    "@types/styled-components": "^4.1.18",
+    "babel-plugin-styled-components": "^1.10.6",
+    "gatsby-plugin-styled-components": "^3.1.4",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.8.0",
+    "tslint": "^5.19.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.6.2"
   }
 }
