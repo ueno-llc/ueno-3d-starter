@@ -14,5 +14,7 @@ export function Controls(props: any) {
     }
   });
 
-  return <orbitControls ref={ref} args={[camera]} {...props} />;
+  const domElement = props.containerRef && props.containerRef.current;
+
+  return <orbitControls ref={ref} args={[camera, domElement]} {...props} />;
 }
