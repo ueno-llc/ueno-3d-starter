@@ -55,6 +55,7 @@
     "@types/react-cache": "^2.0.1",
     "@types/react-dom": "^16.9.0",
     "@types/react-helmet": "^5.0.9",
+    "@types/scheduler": "^0.12.1",
     "@types/styled-components": "^4.1.18",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby-plugin-styled-components": "^3.1.4",
