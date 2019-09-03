@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import styled from 'styled-components';
 import * as THREE from 'three';
 import { Canvas } from '../components/canvas/Canvas';
@@ -16,13 +16,13 @@ const SceneContainer = styled.div`
 `;
 
 export default function IndexPage() {
-  const houseScene = useRef<any>();
-  const hotDogScene = useRef<any>();
+  const houseScene = useRef<HTMLDivElement>();
+  const [hotDogActive, setHotDogActive] = useState(false);
 
   return (
     <Layout>
       <h1>Welcome to the third dimension</h1>
-      <SceneContainer ref={houseScene}>
+      <SceneContainer ref={houseScene as any}>
         <Canvas
           camera={{
             position: new THREE.Vector3(-40, 25, 10),
@@ -37,15 +37,14 @@ export default function IndexPage() {
         </Canvas>
       </SceneContainer>
 
-      <h1>Welcome to the third dimension</h1>
-      <SceneContainer ref={hotDogScene}>
+      <h1>Here is a hot dog</h1>
+      <SceneContainer onClick={() => setHotDogActive(!hotDogActive)}>
         <Canvas>
           <ambientLight intensity={0.5} />
           <spotLight intensity={0.8} position={[300, 300, 400]} />
           <Suspense fallback={<Box size={2} />}>
-            <HotDog />
+            <HotDog active={hotDogActive} />
           </Suspense>
-          <Controls containerRef={hotDogScene} />
         </Canvas>
       </SceneContainer>
     </Layout>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { a, useSpring } from 'react-spring/three';
 import * as THREE from 'three';
 import { loaders } from '../../../utils/loaders';
 
@@ -18,9 +19,20 @@ export const materials: { [key: string]: THREE.Material } = {
   eyes: new THREE.MeshBasicMaterial({ color: 0x000000 }),
 };
 
-export function HotDog() {
+export function HotDog({ active }: any) {
   const scene = loaders.obj.read('/objects/hotdog.obj');
   const ref = useRef<THREE.Object3D>();
+
+  const props = useSpring({
+    config: {
+      tension: 200,
+      friction: 10,
+    },
+    rotation: active
+      ? [-Math.PI / 2, Math.PI, Math.PI / 2]
+      : [0.2 * Math.PI, Math.PI * 0.9, 0],
+    scale: active ? [0.15, 0.15, 0.15] : [0.1, 0.1, 0.1],
+  });
 
   useEffect(() => {
     if (ref.current) {
@@ -35,12 +47,6 @@ export function HotDog() {
   }, [ref]);
 
   return (
-    <primitive
-      ref={ref}
-      object={scene}
-      position={[0, -2, 0]}
-      scale={[0.1, 0.1, 0.1]}
-      rotation={new THREE.Euler(0.2 * Math.PI, Math.PI * 0.9, 0)}
-    />
+    <a.primitive ref={ref} object={scene} position={[0, 0, 0]} {...props} />
   );
 }

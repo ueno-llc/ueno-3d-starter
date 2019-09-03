@@ -5,3 +5,5 @@ declare module JSX {
     primitive: any;
   }
 }
+
+declare module 'react-spring/three';
