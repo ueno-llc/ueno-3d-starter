@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-circular-progressbar/dist/styles.css';
 import { Controls } from '../components/controls/Controls';
 import { LoadingScreen } from '../components/loading-screen/LoadingScreen';
 import {
