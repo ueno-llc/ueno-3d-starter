@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { Suspense, useRef, useState } from 'react';
 import styled from 'styled-components';
 import * as THREE from 'three';
@@ -47,6 +48,13 @@ export default function IndexPage() {
           </Suspense>
         </Canvas>
       </SceneContainer>
+
+      <h1>Other examples</h1>
+      <ul>
+        <li>
+          <Link to="/horizontal">Horizontal Scrolling</Link>
+        </li>
+      </ul>
     </Layout>
   );
 }
