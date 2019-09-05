@@ -28,5 +28,11 @@ module.exports = {
         icon: 'src/assets/images/gatsby-icon.png',
       },
     },
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve('./src/components/app-layout/AppLayout.tsx'),
+      },
+    },
   ],
 };

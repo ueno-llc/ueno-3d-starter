@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { loaders } from '../../../utils/loaders';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { useResource } from '../../resources/Resources';
 
 const materials: { [key: string]: any } = {
   white: new THREE.MeshStandardMaterial({
@@ -76,7 +77,7 @@ const shadows: { [key: string]: any } = {
 };
 
 export function UenoHouse() {
-  const scene = loaders.obj.read('/objects/ueno-house.obj');
+  const scene = useResource('/objects/ueno-house.obj', OBJLoader);
   const ref = useRef<THREE.Object3D>();
 
   useEffect(() => {
@@ -95,7 +96,11 @@ export function UenoHouse() {
         }
       });
     }
-  }, [ref]);
+  }, [ref, scene]);
+
+  if (!scene) {
+    return null;
+  }
 
   return (
     <primitive

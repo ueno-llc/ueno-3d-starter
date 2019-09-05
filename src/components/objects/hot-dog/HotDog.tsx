@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { a, useSpring } from 'react-spring/three';
 import * as THREE from 'three';
-import { loaders } from '../../../utils/loaders';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { useResource } from '../../resources/Resources';
 
 export const materials: { [key: string]: THREE.Material } = {
   bread: new THREE.MeshStandardMaterial({
@@ -20,7 +21,7 @@ export const materials: { [key: string]: THREE.Material } = {
 };
 
 export function HotDog({ active }: any) {
-  const scene = loaders.obj.read('/objects/hotdog.obj');
+  const scene = useResource('/objects/hotdog.obj', OBJLoader);
   const ref = useRef<THREE.Object3D>();
 
   const props = useSpring({
@@ -44,7 +45,11 @@ export function HotDog({ active }: any) {
         }
       });
     }
-  }, [ref]);
+  }, [ref, scene]);
+
+  if (!scene) {
+    return null;
+  }
 
   return (
     <a.primitive ref={ref} object={scene} position={[0, 0, 0]} {...props} />

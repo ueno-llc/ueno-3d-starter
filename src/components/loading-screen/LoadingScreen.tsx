@@ -39,6 +39,7 @@ export function LoadingScreen() {
   if (context.loaded === context.resources) {
     return null;
   }
+
   return (
     <Overlay>
       <Progress>

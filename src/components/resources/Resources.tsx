@@ -169,12 +169,12 @@ export function ResourcesProvider(props: ResourcesProviderProps) {
   );
 }
 
-export const useResource = (file: string, loader?: ResourceLoaderClass) => {
+export function useResource(file: string, loader?: ResourceLoaderClass) {
   const context = useContext(ResourcesContext);
   const [object, setObject] = useState(null);
   useEffect(() => context.queueResource(file, setObject, loader), [file]);
   return object;
-};
+}
 
 // Suspense only (still WIP)
 const resource = createResource((file: string) => {

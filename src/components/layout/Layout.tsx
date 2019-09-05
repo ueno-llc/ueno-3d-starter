@@ -1,7 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import { Styles } from '../../styles/base';
 import { Header } from '../header/Header';
 
 const Content = styled.div`
@@ -24,7 +23,6 @@ export const Layout = ({ children }: any) => {
 
   return (
     <>
-      <Styles />
       <Header siteTitle={data.site.siteMetadata.title} />
       <Content>
         <main>{children}</main>
