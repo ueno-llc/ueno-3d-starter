@@ -45,8 +45,11 @@ export function LoadingScreen() {
         <ProgressBar progress={context.progress} />
       </Progress>
       <ProgressText>
-        Loading {context.loaded} of {context.resources} resources ($
+        Loading {context.loaded + 1} of {context.resources} resources (
         {Math.round(context.progress * 100)}%)
+      </ProgressText>
+      <ProgressText>
+        {context.bytesLoaded} / {context.bytesTotal} bytes
       </ProgressText>
     </Overlay>
   );
